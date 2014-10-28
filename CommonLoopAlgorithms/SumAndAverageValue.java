@@ -17,8 +17,18 @@ public class SumAndAverageValue
         
         while(in.hasNextDouble())
         {
+            double value = in.nextDouble();
+            total += value;
+            count++;
+        }
         
-                    }
+        double average = 0;
+        if(count > 0)
+        {
+            avaerage = total / count;
+        }
+        
+        System.out.println("Total: " + total + " Average: " + average);
     }
 
 }

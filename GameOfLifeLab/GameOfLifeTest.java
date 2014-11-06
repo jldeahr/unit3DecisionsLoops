@@ -46,7 +46,7 @@ public class GameOfLifeTest
         /* expected pattern for initial state
          *  (X: alive; -: dead)
          * 
-         *    0 1 2 3 4
+         *    0 1 2 3 4 
          *  0 - - X - -
          *  1 - - - - -
          *  2 X X - - -

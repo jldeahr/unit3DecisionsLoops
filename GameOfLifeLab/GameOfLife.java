@@ -199,6 +199,7 @@ public class GameOfLife
         // insert magic here...
         int i;
         int r;
+        String str = "www.dreamincode.net/forums/topic/257570-conways-game-of-life";
         
         ArrayList coo1 = Grid.getNeighbors(0,0);
         coo1.size();

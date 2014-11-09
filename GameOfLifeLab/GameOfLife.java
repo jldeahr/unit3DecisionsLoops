@@ -4,6 +4,7 @@ import info.gridworld.actor.Rock;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
+import java.util.ArrayList;
 
 /**
  * Game of Life starter code. Demonstrates how to create and populate the game using the GridWorld framework.
@@ -40,6 +41,11 @@ public class GameOfLife
     private final int X16 = 8, Y16 = 7;
     private final int X17 = 9, Y17 = 5;
     private final int X18 = 2, Y18 = 1;
+    private final int X19 = 3, Y19 = 1;
+    private final int X20 = 5, Y20 = 5;
+    private final int X21 = 8, Y21 = 2;
+    private final int X22 = 8, Y22 = 5;
+    private final int X23 = 8, Y23 = 6;
 
     /**
      * Default constructor for objects of class GameOfLife
@@ -60,6 +66,9 @@ public class GameOfLife
         
         // display the newly constructed and populated world
         world.show();
+        
+        //creates next generation
+        createNextGeneration();
         
     }
     
@@ -148,6 +157,26 @@ public class GameOfLife
         Rock rock18 = new Rock();
         Location loc18 = new Location(X18, Y18);
         grid.put(loc18, rock18);
+        
+        Rock rock19 = new Rock();
+        Location loc19 = new Location(X19, Y19);
+        grid.put(loc19, rock19);
+        
+        Rock rock20 = new Rock();
+        Location loc20 = new Location(X20, Y20);
+        grid.put(loc20, rock20);
+        
+        Rock rock21 = new Rock();
+        Location loc21 = new Location(X21, Y21);
+        grid.put(loc21, rock21);
+        
+        Rock rock22 = new Rock();
+        Location loc22 = new Location(X22, Y22);
+        grid.put(loc22, rock22);
+        
+        Rock rock23 = new Rock();
+        Location loc23 = new Location(X23, Y23);
+        grid.put(loc23, rock23);
     }
 
     /**
@@ -168,7 +197,23 @@ public class GameOfLife
         Grid<Actor> grid = world.getGrid();
         
         // insert magic here...
+        int i;
+        int r;
         
+        ArrayList coo1 = Grid.getNeighbors(0,0);
+        coo1.size();
+        coo1.toArray();
+        
+        //while (i <= 10)
+        //{
+        //    while (r <= 10)
+        //    {    
+        //        if (Location(i, r).getAdjacentLocation(NORTH))
+        //        {
+        //            
+        //        }
+        //    }
+        //}
     }
     
     /**

@@ -50,12 +50,12 @@ public class GameOfLifeTest
          *  0 - - X - - - - - - X
          *  1 - - - - - X - - X -
          *  2 X X - - - X X X - -
-         *  3 - - - - - - - - - -
+         *  3 - X - - - - - - - -
          *  4 - - - - - - - - - X
-         *  5 - - - - X - - - - -
+         *  5 - - - - X X - - - -
          *  6 X - - - - X - - - -
          *  7 - - - X - - - - - -
-         *  8 - - X - - - - X - -
+         *  8 - - X - - X X X - -
          *  9 - - - - - X - - - -
          *  
          */
@@ -81,12 +81,16 @@ public class GameOfLifeTest
                         (row == 2 && col == 5) ||
                         (row == 2 && col == 6) ||
                         (row == 2 && col == 7) ||
+                        (row == 3 && col == 1) ||
                         (row == 4 && col == 9) ||
                         (row == 5 && col == 4) ||
+                        (row == 5 && col == 5) ||
                         (row == 6 && col == 0) ||
                         (row == 6 && col == 5) ||
                         (row == 7 && col == 3) ||
                         (row == 8 && col == 2) ||
+                        (row == 8 && col == 5) ||
+                        (row == 8 && col == 6) ||
                         (row == 8 && col == 7) ||
                         (row == 9 && col == 5))
                 {

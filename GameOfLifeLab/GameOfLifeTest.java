@@ -109,7 +109,35 @@ public class GameOfLifeTest
     {
         /* verify that the actual pattern matches the expected pattern after 3 generations         *  
          */
-        
+        if(             (row == 1 && col == 0) ||
+                        (row == 1 && col == 1) ||
+                        (row == 1 && col == 5) ||
+                        (row == 1 && col == 7) ||
+                        (row == 1 && col == 8) ||
+                        (row == 1 && col == 9) ||
+                        (row == 2 && col == 0) ||
+                        (row == 2 && col == 1) ||
+                        (row == 2 && col == 5) ||
+                        (row == 2 && col == 6) ||
+                        (row == 2 && col == 7) ||
+                        (row == 3 && col == 1) ||
+                        (row == 3 && col == 6) ||
+                        (row == 5 && col == 4) ||
+                        (row == 5 && col == 5) ||
+                        (row == 6 && col == 5) ||
+                        (row == 7 && col == 5) ||
+                        (row == 8 && col == 4) ||
+                        (row == 8 && col == 5) ||
+                        (row == 9 && col == 4) ||
+                        (row == 9 && col == 5) ||
+                        (row == 9 && col == 6))
+                {
+                    assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
+                }
+                else // else, the cell should be dead; assert that the actor is null
+                {
+                    assertNull("expected dead cell at (" + row + ", " + col + ")", cell);
+                }
         // ...
     }
 }

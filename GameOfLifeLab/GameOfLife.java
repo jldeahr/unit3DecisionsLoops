@@ -1,6 +1,7 @@
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.ActorWorld;
 import info.gridworld.actor.Rock;
+import info.gridworld.actor.Critter;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
@@ -66,10 +67,7 @@ public class GameOfLife
         
         // display the newly constructed and populated world
         world.show();
-        
-        //creates next generation
-        createNextGeneration();
-        
+                
     }
     
     /**
@@ -188,6 +186,7 @@ public class GameOfLife
      * 
      */
     private void createNextGeneration()
+        throws InterruptedException
     {
         /** You will need to read the documentation for the World, Grid, and Location classes
          *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
@@ -197,24 +196,22 @@ public class GameOfLife
         Grid<Actor> grid = world.getGrid();
         
         // insert magic here...
-        int i;
-        int r;
-        String str = "www.dreamincode.net/forums/topic/257570-conways-game-of-life";
+        for (int r = 0; r < ROWS; r++)
+        {
+            for (int c = 0; c < COLS; c++)
+            {
+                Location location1 = new Location(r,c);
+                ArrayList<Location> ara1 = grid.getOccupiedAdjacentLocations(location1);
+                if (ara1.size() < 3)
+                {
+                    Critter critter = new Critter();
+                    Location loc1 = new Location(r, c);
+                    grid.put(loc1, critter);
+                }
+                System.out.println(ara1.size());
+            }
+        }
         
-        ArrayList coo1 = Grid.getNeighbors(0,0);
-        coo1.size();
-        coo1.toArray();
-        
-        //while (i <= 10)
-        //{
-        //    while (r <= 10)
-        //    {    
-        //        if (Location(i, r).getAdjacentLocation(NORTH))
-        //        {
-        //            
-        //        }
-        //    }
-        //}
     }
     
     /**
@@ -258,8 +255,12 @@ public class GameOfLife
      *
      */
     public static void main(String[] args)
+        throws InterruptedException
     {
         GameOfLife game = new GameOfLife();
+        
+        game.createNextGeneration();
+        
     }
 
 }

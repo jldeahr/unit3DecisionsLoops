@@ -210,6 +210,11 @@ public class GameOfLife
                     Rock rock = new Rock();
                     grid.put(location1, rock);
                 }
+                else if(grid.get(location1) = null && ara1.size = 3)
+                {
+                    Rock rock = new Rock();
+                    grid.put(location1, rock);
+                }
                 System.out.println(ara1.size());
             }
         }
@@ -260,13 +265,13 @@ public class GameOfLife
         throws InterruptedException
     {
         GameOfLife game = new GameOfLife();        
-        for (int i = 0; i <= 3; i++)
-        {
+        //for (int i = 0; i <= 3; i++)
+        //{
             game.createNextGeneration();
-            System.out.println("Waiting...");
-            Thread.sleep(8000);
-            System.out.println("Done Waiting.");
-        }
+        //    System.out.println("Waiting...");
+        //    Thread.sleep(8000);
+        //    System.out.println("Done Waiting.");
+        //}
         
     }
 }

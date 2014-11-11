@@ -110,6 +110,23 @@ public class GameOfLifeTest
         /* verify that the actual pattern matches the expected pattern after 3 generations   (1 generation for now)      *  
          */
         // ...
+        /* expected pattern for ONE STEP
+         *  (X: alive; -: dead)
+         * 
+         *    0 1 2 3 4 5 6 7 8 9
+         *  0 - - - - - - - - - -
+         *  1 X X - - - X - X X X
+         *  2 X X - - - X X X - -
+         *  3 - X - - - - X - - -
+         *  4 - - - - - - - - - -
+         *  5 - - - - X X - - - -
+         *  6 - - - - - X - - - -
+         *  7 - - - - X X - - - -
+         *  8 - - - - X X X - - -
+         *  9 - - - - - X - - - -
+         *  
+         */
+        
         GameOfLife game = new GameOfLife();
         game.createNextGeneration();
         final int ROWS = game.getNumRows();

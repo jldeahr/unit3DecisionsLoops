@@ -1,7 +1,6 @@
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.ActorWorld;
 import info.gridworld.actor.Rock;
-import info.gridworld.actor.Critter;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
@@ -67,7 +66,10 @@ public class GameOfLife
         
         // display the newly constructed and populated world
         world.show();
-                
+        
+        //creates next generation
+        createNextGeneration();
+        
     }
     
     /**
@@ -185,7 +187,7 @@ public class GameOfLife
      * @post    the world has been populated with a new grid containing the next generation
      * 
      */
-    public void createNextGeneration()
+    private void createNextGeneration()
     {
         /** You will need to read the documentation for the World, Grid, and Location classes
          *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
@@ -195,25 +197,24 @@ public class GameOfLife
         Grid<Actor> grid = world.getGrid();
         
         // insert magic here...
-        for (int r = 0; r < ROWS; r++)
-        {
-            for (int c = 0; c < COLS; c++)
-            {
-                Location location1 = new Location(r,c);
-                ArrayList<Location> ara1 = grid.getOccupiedAdjacentLocations(location1);
-                if (ara1.size() < 2 || ara1.size() > 3)
-                {
-                    grid.remove(location1);                 
-                }
-                else if (ara1.size() == 2 || ara1.size() == 3)
-                {
-                    Rock rock = new Rock();
-                    grid.put(location1, rock);
-                }
-                System.out.println(ara1.size());
-            }
-        }
+        int i;
+        int r;
+        String str = "www.dreamincode.net/forums/topic/257570-conways-game-of-life";
         
+        ArrayList coo1 = Grid.getNeighbors(0,0);
+        coo1.size();
+        coo1.toArray();
+        
+        //while (i <= 10)
+        //{
+        //    while (r <= 10)
+        //    {    
+        //        if (Location(i, r).getAdjacentLocation(NORTH))
+        //        {
+        //            
+        //        }
+        //    }
+        //}
     }
     
     /**
@@ -257,16 +258,8 @@ public class GameOfLife
      *
      */
     public static void main(String[] args)
-        throws InterruptedException
     {
-        GameOfLife game = new GameOfLife();        
-        for (int i = 0; i <= 3; i++)
-        {
-            game.createNextGeneration();
-            System.out.println("Waiting...");
-            Thread.sleep(8000);
-            System.out.println("Done Waiting.");
-        }
-        
+        GameOfLife game = new GameOfLife();
     }
+
 }

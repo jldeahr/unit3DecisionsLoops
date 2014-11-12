@@ -200,25 +200,20 @@ public class GameOfLife
             for (int c = 0; c < COLS; c++)
             {
                 Location location1 = new Location(r,c);
-                ArrayList<Location> ara1 = grid.getOccupiedAdjacentLocations(location1);
+                ArrayList<Location> ara1 = grid.getOccupiedAdjacentLocations(location1);                
                 if (ara1.size() < 2 || ara1.size() > 3)
                 {
-                    grid.remove(location1);                 
+                    grid.remove(location1);
+                    System.out.println("Removed at: " + r + " " + c);
                 }
                 else if (ara1.size() == 2 || ara1.size() == 3)
                 {
-                    Rock rock = new Rock();
+                    Critter rock = new Critter();
                     grid.put(location1, rock);
-                }
-                else if(grid.get(location1) = null && ara1.size = 3)
-                {
-                    Rock rock = new Rock();
-                    grid.put(location1, rock);
-                }
-                System.out.println(ara1.size());
+                    System.out.println("Added at: " + r + " " + c);
+                }                   
             }
         }
-        
     }
     
     /**

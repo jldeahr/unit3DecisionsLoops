@@ -191,8 +191,9 @@ public class GameOfLife
          *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
          */
         
-        // create the grid, of the specified size, that contains Actors
+        // create the grid, of the specified size, that contains Actors   
         Grid<Actor> grid = world.getGrid();
+        world = new ActorWorld(grid);
         
         // insert magic here...
         for (int r = 0; r < ROWS; r++)
@@ -200,18 +201,23 @@ public class GameOfLife
             for (int c = 0; c < COLS; c++)
             {
                 Location location1 = new Location(r,c);
-                ArrayList<Location> ara1 = grid.getOccupiedAdjacentLocations(location1);                
-                if (ara1.size() < 2 || ara1.size() > 3)
-                {
+                System.out.println(location1);
+                ArrayList<Location> ara1 = grid.getOccupiedAdjacentLocations(location1);
+                ArrayList<Location> ara2 = grid.getOccupiedLocations();             
+                if ((ara1.size() < 2 && ara2.contains(location1)) || 
+                    (ara1.size() > 3 && ara2.contains(location1))) 
+                {                
                     grid.remove(location1);
-                    System.out.println("Removed at: " + r + " " + c);
+                    System.out.println("Removed at: " + r + " " + c);                    
                 }
-                else if (ara1.size() == 2 || ara1.size() == 3)
+                else if ((ara1.size() == 2 && ara2.contains(location1)) || 
+                    (ara1.size() == 3 && ara2.contains(location1)) || 
+                    (ara1.size() == 3 && !ara2.contains(location1)))
                 {
                     Critter rock = new Critter();
                     grid.put(location1, rock);
                     System.out.println("Added at: " + r + " " + c);
-                }                   
+                }                
             }
         }
     }

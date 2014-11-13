@@ -115,14 +115,14 @@ public class GameOfLifeTest
          * 
          *    0 1 2 3 4 5 6 7 8 9
          *  0 - - - - - - - - - -
-         *  1 X X - - - X - X X X
-         *  2 X X - - - X X X - -
-         *  3 - X - - - - X - - -
-         *  4 - - - - - - - - - -
+         *  1 - - - - - X - X X -
+         *  2 X X - - - X - X X -
+         *  3 X X - - - - - - X X
+         *  4 - - - - - - - - X X
          *  5 - - - - X X - - - -
          *  6 - - - - - X - - - -
          *  7 - - - - X X - - - -
-         *  8 - - - - X X X - - -
+         *  8 - - - - X - X - - -
          *  9 - - - - - X - - - -
          *  
          */
@@ -136,28 +136,27 @@ public class GameOfLifeTest
             for (int col = 0; col < COLS; col++)
             {
                 Actor cell = game.getActor(row, col);
-                if(             (row == 1 && col == 0) ||
-                                (row == 1 && col == 1) ||
-                                (row == 1 && col == 5) ||
+                if(             (row == 1 && col == 5) ||
                                 (row == 1 && col == 7) ||
                                 (row == 1 && col == 8) ||
-                                (row == 1 && col == 9) ||
                                 (row == 2 && col == 0) ||
                                 (row == 2 && col == 1) ||
                                 (row == 2 && col == 5) ||
-                                (row == 2 && col == 6) ||
                                 (row == 2 && col == 7) ||
+                                (row == 2 && col == 8) ||
+                                (row == 3 && col == 0) ||
                                 (row == 3 && col == 1) ||
-                                (row == 3 && col == 6) ||
+                                (row == 3 && col == 8) ||
+                                (row == 3 && col == 9) ||
+                                (row == 4 && col == 8) ||
+                                (row == 4 && col == 9) ||
                                 (row == 5 && col == 4) ||
                                 (row == 5 && col == 5) ||
                                 (row == 6 && col == 5) ||
                                 (row == 7 && col == 5) ||
                                 (row == 8 && col == 4) ||
-                                (row == 8 && col == 5) ||
-                                (row == 9 && col == 4) ||
-                                (row == 9 && col == 5) ||
-                                (row == 9 && col == 6))
+                                (row == 8 && col == 6) ||
+                                (row == 9 && col == 5))
                 {
                     assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
                 }

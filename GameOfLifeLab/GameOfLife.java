@@ -6,6 +6,7 @@ import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Game of Life starter code. Demonstrates how to create and populate the game using the GridWorld framework.
@@ -201,14 +202,12 @@ public class GameOfLife
             for (int c = 0; c < COLS; c++)
             {
                 Location location1 = new Location(r,c);
-                System.out.println(location1);
                 ArrayList<Location> ara1 = grid.getOccupiedAdjacentLocations(location1);
                 ArrayList<Location> ara2 = grid.getOccupiedLocations();             
                 if ((ara1.size() < 2 && ara2.contains(location1)) || 
                     (ara1.size() > 3 && ara2.contains(location1))) 
                 {                
-                    grid.remove(location1);
-                    System.out.println("Removed at: " + r + " " + c);                    
+                    grid.remove(location1);                   
                 }
                 else if ((ara1.size() == 2 && ara2.contains(location1)) || 
                     (ara1.size() == 3 && ara2.contains(location1)) || 
@@ -216,7 +215,6 @@ public class GameOfLife
                 {
                     Critter rock = new Critter();
                     grid.put(location1, rock);
-                    System.out.println("Added at: " + r + " " + c);
                 }                
             }
         }
@@ -265,14 +263,11 @@ public class GameOfLife
     public static void main(String[] args)
         throws InterruptedException
     {
-        GameOfLife game = new GameOfLife();        
-        //for (int i = 0; i <= 3; i++)
-        //{
+        GameOfLife game = new GameOfLife();       
+        while (true)
+        {
             game.createNextGeneration();
-        //    System.out.println("Waiting...");
-        //    Thread.sleep(8000);
-        //    System.out.println("Done Waiting.");
-        //}
-        
+            Thread.sleep(1500);
+        }               
     }
 }

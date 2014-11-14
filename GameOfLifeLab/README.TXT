@@ -91,6 +91,3 @@ Artifacts:
 *The game does not wrap around
 
 
-Reflection:
-
-

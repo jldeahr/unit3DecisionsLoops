@@ -1,0 +1,7 @@
+I enjoyed the idea of Conway's Game of Life. It was interesting to observe how different patterns
+reacted with each other. I cannot say that there was anything I specifically disliked. Some of the
+logic was a little more difficult than I had expected. However, I readjusted quickly and found
+the errors in my program. Through this project, I learned some of the basics of boolean logic and
+programming logic through trial and error. I have no further questions on this specific topic.
+I would recommend that future students be wary of how long this project could potentially take,
+as some of the errors they will have won't have obvious solutions. 
